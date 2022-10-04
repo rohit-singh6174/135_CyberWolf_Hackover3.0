@@ -29,15 +29,28 @@ def account():
 def register():
     if current_user.is_authenticated:
         return redirect(url_for('account'))
+
     form=RegistrationForm()
     if form.validate_on_submit():
-        encrypted_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8') #genearte hash of 60 characters
-        keyGen = blockchainObj.generateKeys()
-        user= User(name=form.name.data,username=form.username.data,email=form.email.data,password=encrypted_password,key=keyGen)
-        db.session.add(user)
-        db.session.commit()
-        flash(f'Account created successfully for {form.username.data}',category='success')
-        return redirect(url_for('home'))
+         u_email= User.query.filter_by(email=form.email.data).first()
+         
+         if u_email:
+            u_username=User.query.filter_by(username=form.username.data).first()
+
+            if u_username:
+                 flash(f'Account already created for {form.username.data}',category='danger')
+            else:
+                 flash(f'Account already created for {form.email.data}',category='danger') 
+
+         else:
+            encrypted_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8') #genearte hash of 60 characters
+            keyGen = blockchainObj.generateKeys()
+            user= User(name=form.name.data,username=form.username.data,email=form.email.data,password=encrypted_password,key=keyGen)
+            db.session.add(user)
+            db.session.commit()
+            flash(f'Account created successfully for {form.username.data}',category='success')
+            return redirect(url_for('home'))
+    
     return render_template('register.html',form=form)
 
     
