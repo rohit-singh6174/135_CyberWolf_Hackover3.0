@@ -9,3 +9,9 @@ blockchain =Blockchain();
 
 transcation = Transaction("Rohit","Vrushabh",30)
 
+blockchain.pendingTransactions.append(transcation)
+blockchain.minePendingTransactions("checkit")
+
+pp.pprint(blockchain.chainJSONencode())
+print("Length :",len(blockchain.chain))
+
