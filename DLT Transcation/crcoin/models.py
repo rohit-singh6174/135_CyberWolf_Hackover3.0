@@ -18,6 +18,7 @@ class User(db.Model,UserMixin):
     email=db.Column(db.String(40),unique=True,nullable=False)
     password=db.Column(db.String(60),nullable=False)
     date_created=db.Column(db.DateTime,default=datetime.utcnow)
+    key = db.Column(db.String(100000),unique=True,nullable=False)
 
     def __repr__(self):
-        return f'\n name: {self.name},\n username: {self.username},\n email: {self.email},\n password: {self.password},\ndate: {self.date_created.strftime("%d/%m/%Y, %H:%M:%S")}\n'
+        return f'\n name: {self.name},\n username: {self.username},\n email: {self.email},\n password: {self.password},\ndate: {self.date_created.strftime("%d/%m/%Y, %H:%M:%S")}, \nkey :{self.key}\n'

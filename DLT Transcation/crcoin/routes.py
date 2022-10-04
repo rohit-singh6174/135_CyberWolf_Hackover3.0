@@ -4,6 +4,8 @@ from crcoin import app,db,bcrypt
 from crcoin.forms import RegistrationForm, LoginForm
 from crcoin.models import User
 from flask_login import login_user,logout_user,current_user,login_required
+from Crypto.PublicKey import RSA
+from crcoin import blockchainObj
 
 @app.route("/")
 @app.route("/home")
@@ -11,11 +13,15 @@ def home():
     return render_template('blockchain.html')
 
 
+
+@app.route("/index")
+def index():
+    return render_template('index.html')
+
+
 @app.route("/account")
 @login_required
 def account():
-    
-    user=User()
     return render_template('account.html')
 
 
@@ -26,7 +32,8 @@ def register():
     form=RegistrationForm()
     if form.validate_on_submit():
         encrypted_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8') #genearte hash of 60 characters
-        user= User(name=form.name.data,username=form.username.data,email=form.email.data,password=encrypted_password)
+        keyGen = blockchainObj.generateKeys()
+        user= User(name=form.name.data,username=form.username.data,email=form.email.data,password=encrypted_password,key=keyGen)
         db.session.add(user)
         db.session.commit()
         flash(f'Account created successfully for {form.username.data}',category='success')
@@ -42,12 +49,12 @@ def login():
     if form.validate_on_submit():
          user= User.query.filter_by(email=form.email.data).first()
          if user and bcrypt.check_password_hash(user.password,form.password.data):
-             login_user(user)
-             flash(f'Login successfully for {form.email.data}',category='success')
-             return redirect(url_for('account'))
+            login_user(user)
+            flash(f'Login successfully for {form.email.data}',category='success')
+            return redirect(url_for('account'))
          else:
-             flash(f'Login unsuccessfully for {form.email.data}',category='danger')
-             return redirect(url_for('home'))
+            flash(f'Login unsuccessfully for {form.email.data}',category='danger')
+            return redirect(url_for('home'))
 
     return render_template('login.html',form=form)
 

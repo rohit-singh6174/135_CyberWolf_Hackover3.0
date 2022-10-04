@@ -12,9 +12,7 @@
 	 <h3>DLT Transcation</h3>
 	 {%if current_user.is_authenticated%}
 	 <a href="{{url_for('logout')}}">Logout </a>
-
 	 {% else %}
-	
      <a href="/login">Login </a>
      <a href="/register">Register </a>
 	 {%endif%}
