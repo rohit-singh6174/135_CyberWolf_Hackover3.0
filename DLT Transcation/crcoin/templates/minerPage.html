@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<!--Main Content -->
+<link href="{{ url_for('static', filename= 'css/miner_page.css') }}" rel="stylesheet">
+<div class="minerPage">
+<h1>Mine Blocks for Rewards</h1>
+  <p class="mine-reward-condition">Current Mining Reward: 50 CRCoins </p>
+  <h4>Pending Transactions:</h4> 
+
+<table class="table">
+    <thead class="tabel-head">
+      <th scope="col">#</th>
+          <th scope="col">From</th>
+          <th scope="col">To</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Timestamp</th>
+          <th scope="col">Valid?</th>
+    </thead>
+     <tbody>
+      <tr>
+        <th scope="row">0</th>
+        
+        <td class="text-truncate" style="max-width: 100px;">
+          <a>Sender_Address</a>
+        </td>
+        <td class="text-truncate" style="max-width: 100px;">
+            <a>Receiver_Address</a>
+        </td>
+        <td>
+          Amount CR
+        </td>
+        <td>
+          Time<br>
+        </td>
+        <td style="max-width: 40px;">
+         Transcation Valid
+            <span>✓</span><br><br>
+         Transation notValid
+            <span>✗</span>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">1</th>
+        
+        <td class="text-truncate" style="max-width: 100px;">
+          <a>Sender_Address</a>
+        </td>
+        <td class="text-truncate" style="max-width: 100px;">
+            <a>Receiver_Address</a>
+        </td>
+        <td>
+          Amount CR
+        </td>
+        <td>
+          Time<br>
+        </td>
+        <td style="max-width: 40px;">
+         Transcation Valid
+            <span>✓</span><br><br>
+         Transation notValid
+            <span>✗</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="Transcations-btn"> 
+      <button type="button" class="Transcations-mine-btn">Mine A New Block!</button>
+   <!--    <button type="button" class="Transcations-signin-btn">Sign in!</button> 
+    if user is authenticated(signed in)-->
+    </div>
+</div>
+<!--End Main Content-->
+{% endblock %}

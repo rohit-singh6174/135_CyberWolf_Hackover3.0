@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Transcation</title>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link href="{{ url_for('static', filename= 'css/side_nav_footer.css')}}" rel="stylesheet">
+<body>
+<input type="checkbox" id="check">
+<header>
+<div class="navbar">
+	 <label for="check"><i class="fa fa-bars" id="sidebar_btn" ></i> </label>
+	 <h3>DLT Transcation</h3>
+     <a href="/login">Login </a>
+     <a href="/register">Register </a>
+</div>
+<!--Sidebar -->
+</header>
+<div class="sidebar">
+		<center>
+			<h4>Welcome</h4> 
+		</center>
+		<a href="/home"><i class="fa fa-home"></i><span> Home</span></a>
+		<a href="#"><i class="fa fa-credit-card"></i><span> Payment</span></a>
+		<a href="#"><i class="fa fa-gavel"></i><span>Block Mine</span> </a>
+		<a href="/home"><i class="fa fa-eye"></i><span>View the block</span> </a>
+		<a href="/account"><i class="fa fa-user"></i><span>My Account</span> </a>
+	</div>
+<!--Main Body Content Here -->
+ {% with messages=get_flashed_messages(with_categories=true) %}
+   {%if messages %}
+    {%for category,messages in messages%}
+    <div class="alert-{{category}}"> 
+	 {{messages}}
+	</div>
+	{%endfor%}
+    {% endif %}
+{%endwith%}
+
+   {% block body %}
+   
+   {% endblock %}
+<!--End Main Content-->
+<!--footer-->
+<footer>
+  <div class="footer-Content">
+   <h1 class="footer-title">About us</h1>
+   <p> This is a Dynamic Web template created using HTML,CSS and python flask </p>
+   <p>Created by Rohit Singh</p>
+  </div> 
+</footer>
+<!--End footer-->
+</body>
+
+</html>

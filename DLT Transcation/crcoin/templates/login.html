@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>DLT Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login_page.css') }}">
+  
+  
+<!-- <link rel="stylesheet" href="./style.css"> -->
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="login-form-wrap">
+  <h2>User Login</h2>
+  <img src="{{url_for('static', filename='img/f_avatar.png')}}" alt="Avatar" class="center">
+ 
+  <form id="login-form" method="POST" action="">
+
+    {{ form.hidden_tag() }}
+    <p>
+      {%if form.email.errors%}
+      {{form.email(placeholder='Enter Email')}}
+      {%for error in form.email.errors%}
+      <span><span>{{error}}</span></span>
+      {%endfor%}
+      {%else%}
+      {{form.email(placeholder='Enter Email')}}
+      {%endif%}
+       <!-- <input type="text" id="name" name="name" placeholder="name" required><i class="validation"><span></span><span></span></i></p>   -->
+      
+       <p>
+        {%if form.password.errors%}
+        {{form.password(placeholder='Enter Password')}}
+        {%for error in form.password.errors%}
+        <span><span>{{error}}</span></span>
+        {%endfor%}
+        {%else%}
+        {{form.password(placeholder='Enter Password')}}
+        {%endif%}
+         <!-- <input type="text" id="name" name="name" placeholder="name" required><i class="validation"><span></span><span></span></i></p>   -->
+      </p>
+    <p>
+     {{form.submit(value="Login")}}
+    </p>
+    <p>
+      {% with messages=get_flashed_messages(with_categories=true)%}
+      {%if messages %}
+       {%for category,messages in messages%}
+       <div class="alert-{{category}}">
+         {{messages}}
+        </div>
+       {%endfor%}
+       {% endif %}
+      {%endwith%}
+    </p>
+  </form>
+  <div id="create-account-wrap">
+    <p>Not a member? <a href="/register">Create Account</a><p>
+  </div><!--create-account-wrap-->
+</div><!--login-form-wrap-->
+<!-- partial -->
+</body>
+</html>

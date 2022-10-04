@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+body{
+	background-color: #5D5F5F;
+ font-family: 'Open Sans', sans-serif;
+}
+.register-form{
+	background-color: #fff;
+    margin-top: 40px;
+    margin-left: 350px;
+    margin-right: 350px;
+    border-radius: 5px;
+    justify-content: center;
+}
+.register-form span{
+    padding: 20px;
+	margin: 20px;
+	
+}
+.register-form .register-form-input{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 40px;
+	width: 90%;
+	margin-left: 15px;
+	font-size: 18px;
+}
+.register-form  .account-login-btn{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 15px;
+	width: 90%;
+	height: 40px;
+	font-size: 18px;
+	background-color:#0B7BCD;
+	border-radius: 5px;
+	color: #fff;
+}
+.register-form  .account-login-btn:hover{
+	background-color: #066DB9;
+}
+
+.register-form .have_account{
+	margin-left: 25px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}

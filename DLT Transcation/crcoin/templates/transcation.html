@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+<!--Main Content -->
+<link href="{{ url_for('static', filename= 'css/transcation_page.css') }}" rel="stylesheet">
+<div class="transcation-page">
+ <h1>Create a Secure Transaction</h1>
+    <p>Transfer some money to someone!</p><br>
+         <form method = "POST", action = "">
+          <label for="sender">Sender:</label><br>
+          <input type="text" class="transcation-inputbox" id="sender" placeholder="Sender"><br>
+          <small id="fromAddressHelp" class="form-amount-muted-text">
+          This is your username, and funds will come from wallet address. Each transaction is verified by a crypto hash signature!
+          </small><br>
+          <label for="receiver">Receiver:</label><br>
+          <input type="text" class="transcation-inputbox" id="receiver" placeholder="Enter Receiver username"><br>
+          <small id="fromAddressHelp" class="form-amount-muted-text">
+           Enter in the username of who you want the crytocurrency to go to!
+          </small><br>
+          <label for="amount">Amount:</label><br>
+          <input type="text" class="transcation-inputbox" id="amount" placeholder="Enter Amount"><br>
+          <input type="submit" class="transcation-btn"  value="Make Transcation">
+         </form>
+ </div>
+<!--End Main Content-->
+{% endblock %}
+
