@@ -10,9 +10,16 @@
 <div class="navbar">
 	 <label for="check"><i class="fa fa-bars" id="sidebar_btn" ></i> </label>
 	 <h3>DLT Transcation</h3>
+	 {%if current_user.is_authenticated%}
+	 <a href="{{url_for('logout')}}">Logout </a>
+
+	 {% else %}
+	
      <a href="/login">Login </a>
      <a href="/register">Register </a>
-</div>
+	 {%endif%}
+
+	</div>
 <!--Sidebar -->
 </header>
 <div class="sidebar">

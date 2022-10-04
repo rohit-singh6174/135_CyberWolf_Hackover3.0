@@ -6,15 +6,15 @@
 <h1 class="account-title"> My Account</h1>
 	<form>
           <label for="sender">Name:</label><br>
-          <input type="text" class="account-page-inputbox" id="name" value="Account name" disabled="true"><br>
+          <input type="text" class="account-page-inputbox" id="name" value="{{current_user.name}}" disabled="true"><br>
           <label for="receiver">Username:</label><br>
-          <input type="text" class="account-page-inputbox" id="username" value="Account username" disabled="true"><br>
+          <input type="text" class="account-page-inputbox" id="username" value="{{current_user.username}}" disabled="true"><br>
           <label for="amount">Email:</label><br>
-          <input type="text" class="account-page-inputbox" id="email" value="Account Amount" disabled="true"><br>
+          <input type="text" class="account-page-inputbox" id="email" value="{{current_user.email}}" disabled="true"><br>
            <label for="amount">Key:</label><br>
-          <input type="text" class="account-page-inputbox" id="key" value="Account Key" disabled="true"><br>
+          <input type="text" class="account-page-inputbox" id="key" value="Account Public Key" disabled="true"><br>
            <label for="amount">Balance:</label><br>
-          <input type="text" class="account-page-inputbox" id="balanced" value="Account Balance" disabled="true"><br>
+          <input type="text" class="account-page-inputbox" id="balanced" value="100" disabled="true"><br>
    </form>
 
 </div>
