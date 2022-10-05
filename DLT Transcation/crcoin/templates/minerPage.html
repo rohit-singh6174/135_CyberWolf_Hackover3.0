@@ -18,57 +18,45 @@
           <th scope="col">Valid?</th>
     </thead>
      <tbody>
+      {% for tx in blockchain.pendingTransactions %}
       <tr>
-        <th scope="row">0</th>
+        <th scope="row">{{loop.index0}}</th>
         
         <td class="text-truncate" style="max-width: 100px;">
-          <a>Sender_Address</a>
+          <a>{{tx.sender}}</a>
         </td>
         <td class="text-truncate" style="max-width: 100px;">
-            <a>Receiver_Address</a>
+            <a>{{tx.reciever}}</a>
         </td>
         <td>
-          Amount CR
+          {{tx.amt}}
         </td>
         <td>
-          Time<br>
+          {{tx.time }}<br>
         </td>
         <td style="max-width: 40px;">
-         Transcation Valid
-            <span>✓</span><br><br>
-         Transation notValid
-            <span>✗</span>
+          {% if tx.isValidTransaction() %}
+            <span>yes</span><br><br>
+            {%else%}
+            <span>no</span>
+            {%endif%}
         </td>
       </tr>
-      <tr>
-        <th scope="row">1</th>
-        
-        <td class="text-truncate" style="max-width: 100px;">
-          <a>Sender_Address</a>
-        </td>
-        <td class="text-truncate" style="max-width: 100px;">
-            <a>Receiver_Address</a>
-        </td>
-        <td>
-          Amount CR
-        </td>
-        <td>
-          Time<br>
-        </td>
-        <td style="max-width: 40px;">
-         Transcation Valid
-            <span>✓</span><br><br>
-         Transation notValid
-            <span>✗</span>
-        </td>
-      </tr>
+      {% endfor %}
+    
     </tbody>
   </table>
   <div class="Transcations-btn"> 
-      <button type="button" class="Transcations-mine-btn">Mine A New Block!</button>
-   <!--    <button type="button" class="Transcations-signin-btn">Sign in!</button> 
-    if user is authenticated(signed in)-->
-    </div>
+    {% if current_user.is_authenticated %}
+    <div class="Transcations-btn"> 
+    <a href="{{url_for('mine', miner=current_user.username)}}"><button type="button" class="Transcations-mine-btn">Mine A New Block!</button></a>
+      </div>
+        {% else %}
+      <div class="Transcations-btn"> 
+      <a href="{{url_for('login')}}"><button type="button" class="Transcations-mine-btn">Sign in to mine blocks!</button></a>
+     </div>
+     {% endif %}
+</div>
 </div>
 <!--End Main Content-->
 {% endblock %}

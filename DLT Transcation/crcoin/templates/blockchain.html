@@ -9,35 +9,53 @@
     </div>
     <!--Block chain -->
     <div class="block-chain">
+
     	<!--Block -->
+      {% for block in blockchain.chain %}
    	  <div class="block-card"> 	
    	  	  <div class="block-body"> 
    	       
            <div class="block-header">
-            <h3 class="block-title">Genesis Block</h3>
+            <h3 class="block-title">Genesis Block ({{loop.index}})</h3>
            </div>
            <div class="block-data">
             <h4>block hash generated</h4>
-            <p>f332a8991231dasda3dsdfsasd</p> 
+            <p>{{block.hash[0:20] }}</p> 
           </div>
            <div class="block-data">
              <h4>Previous block hash</h4>
-             <p>g0234ndf0a234fqad2aa89912</p> 
+             <p>{{ block.prev[0:20] }}</p> 
            </div>
            <div class="block-data">
             <h4>TimeStamp</h4>
-            <p>current time</p>
+            <p>{{ block.time }}</p>
            </div><br>
 
            <div class="dropdown">
             <button class="dropbtn">Dropdown</button>
-            <div class="dropdown-content">
-              <a href="#">Transcation 1</a>
-              <a href="#">Transcation 2</a>
-              <a href="#">Transcation 3</a>
-            </div>
+            <div class="dropdown-content"> 
+              {% if loop.index == 1 %}
+                      <span class="">No Transactions</span>
+                  {% else %}
+                      {% for transaction in block.transactions %}
+                                  <span class="">Transaction {{loop.index}}:
+                        <br>
+                        <small>Sender: {{ transaction.sender }}</small>
+                        <br>
+                        <small>Reciever: {{ transaction.reciever }}</small>
+                        <br>
+                        <small>Amount: {{ transaction.amt }}</small>
+                        <br>
+                        <small>Time: {{ transaction.time }}</small>
+                        <br>
+                      </span>
+                      {% endfor %}
+                 {% endif %}
+                      </div>
           </div>
-         
+         </div>
+         </div>
+         {% endfor %}
 
           <script>
             /* When the user clicks on the button, 

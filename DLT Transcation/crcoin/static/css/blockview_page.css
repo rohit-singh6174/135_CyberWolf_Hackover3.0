@@ -45,11 +45,11 @@
 
 }
 
-/* .block-chain .block-card:hover {
+.block-chain .block-card:hover {
   transition: 0.3s;
   box-shadow: 0 8px 16px 0 rgba(13, 209, 227, 1);
 }
- */
+
 
 .block-card .block-body{
 padding: 10px;
@@ -101,7 +101,7 @@ padding: 10px;
   
   .dropdown-content a {
 	color: black;
-	padding: 12px 16px;
+	padding: 10px;
 	text-decoration: none;
 	display: block;
   }

@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+.transcation-page{ 
+	margin-top: 20px;
+	margin-left: 250px;
+	transition: 0.5s;
+	font-family: 'Open Sans', sans-serif;
+}
+#check:checked~ .transcation-page{
+	margin-left: 60px;
+	transition: 0.5s;
+}
+.transcation-page h1{
+	margin-top: 20px;
+	margin-left: 40px;
+}
+.transcation-page p{
+	margin-top: 10px;
+	margin-left: 45px;
+}
+.transcation-page label{
+	margin-left: 50px;
+	margin-top: 20px;
+    font-size: 24px;
+}
+
+.transcation-page span{
+    padding-left: 20px;
+}
+.transcation-page .transcation-inputbox{
+	margin-left: 50px;
+	height: 40px;
+	 width: 90%;
+	 margin-top: 10px;
+	 font-size: 18px;
+     margin-bottom: 2px;
+     padding-left: 10px;
+}
+.transcation-page .form-amount-muted-text{
+    margin-left: 55px;
+    font-size: 14px;
+    margin-top: 0px;
+    color:#727876;
+    margin-bottom: 40px;
+}
+/*ALERT*/
+.transcation-page .transcation-alert-danger {
+	display: flex;
+    padding: 10px;
+	margin-top: 5px;
+   margin-bottom: 5px;
+   margin-left:5px ;
+   background-color:#ffe6e6;
+  color:#cc0000; 
+  transition: 0.5s;	
+}
+#check:checked~ .transcation-page.transcation-alert-danger {
+    margin-left: 60px;
+	transition: 0.5s;	
+}
+/*SUCCESS*/
+.transcation-page .transcation-alert-success{
+	display: flex;
+	padding: 10px;
+	margin-top: 5px;
+   margin-bottom: 5px;
+   margin-left:5px ;
+   background-color:#eafaea;
+   color:#056E14;
+   transition: 0.5s;	
+ }
+ .transcation-page .transcation-alert-success p{
+ color:#056E14;
+ }
+ #check:checked~ .transcation-page .transcation-alert-success{
+    margin-left: 5px;
+	transition: 0.5s;	
+}
+.transcation-page .transcation-btn{
+   margin-left: 50px;
+    margin-top: 40px;
+    height: 40px;
+    width: 90%;
+    color: #fff;
+    background-color: #0B7BCD;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+}
+.transcation-page .transcation-btn:hover {
+	background-color: #066DB9;
+}
+
